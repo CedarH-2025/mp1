@@ -1,1 +1,29 @@
 /* Your SCSS here. */
+$ui_color: #3c5629;
+$main_color: #cbdeb3;
+
+body{
+    margin: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    nav{
+        background-color: $ui_color;
+    }
+
+    header{
+        background-color: $main_color;
+    }
+
+    footer{
+        background-color: $ui_color;
+        text-align: center;
+        color: azure;
+    }
+}
+
+
+
+
+
+
+
