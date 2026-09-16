@@ -1,1 +1,3 @@
 https://developer.mozilla.org/zh-CN/docs/Web/CSS/Reference/Properties/background-image
+https://developer.mozilla.org/zh-CN/docs/Web/CSS/Reference/Properties/background-position
+https://developer.mozilla.org/zh-CN/docs/Web/CSS/Reference/Properties/background-size
