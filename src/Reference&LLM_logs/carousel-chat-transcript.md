@@ -274,3 +274,94 @@ nextButton.addEventListener("click", function() {
 ```
 
 你的内容只需要填进三个 `.carousel-slide` 中。图片、标题、段落都可以放进去，但不要破坏外面的 `carousel-window → carousel-track → carousel-slide` 三层关系。
+
+
+
+
+
+Multi-column layout: A section with Multi-column content (3 or more columns)  
+请指导我完成这个要求
+
+这个要求很简单：做一个 section，里面放一个负责多列布局的容器，再放至少 3 个子元素即可。推荐直接用 CSS Grid。
+
+HTML：
+
+<section id="multi-column">
+    <h2>Multi-column Content</h2>
+
+    <div class="column-container">
+        <article class="column">
+            <h3>Column One</h3>
+            <p>
+                Put your first piece of content here.
+            </p>
+        </article>
+
+        <article class="column">
+            <h3>Column Two</h3>
+            <p>
+                Put your second piece of content here.
+            </p>
+        </article>
+
+        <article class="column">
+            <h3>Column Three</h3>
+            <p>
+                Put your third piece of content here.
+            </p>
+        </article>
+    </div>
+</section>
+
+CSS：
+
+#multi-column {
+    padding: 60px 10%;
+}
+
+.column-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.column {
+    padding: 24px;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+}
+
+.column h3 {
+    margin-top: 0;
+}
+
+最关键的是：
+
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+
+它表示：
+
+使用 Grid 布局；
+建立 3 列；
+1fr 表示每列平分可用宽度。
+
+为了避免浏览器窗口缩小时三列挤得太窄，可以加响应式布局：
+
+@media (max-width: 800px) {
+    .column-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+这样桌面端是三列，窗口宽度小于 800px 时变为一列。
+
+如果你想让它自动判断能放几列，也可以改成：
+
+.column-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+它会在空间充足时显示三列，空间不足时自动变成两列或一列。对于作业验收，建议使用前一种明确的 repeat(3, 1fr)，最容易直接证明满足“3 or more columns”。
