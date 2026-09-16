@@ -2,34 +2,130 @@
 $ui_color: #3c5629;
 $main_color: #cbdeb3;
 
+html {
+    scroll-behavior: smooth;
+}
+
 body{
     margin: 0px;
     padding: 0px;
 
-    nav{
-        background-color: $ui_color;
-        color: azure;
-        top: 0px;
-        position: sticky;
-        overflow: hidden;
+    header{
+        margin: 0px;
+        position: sticky;     
+        top: 0; 
+        z-index: 10;    
+        nav{
+            background-color: $ui_color;
+            height: 60px;
+            color: azure;
+            display: flex;
+            justify-content: space-between;
+            margin-top: 0px;
+            margin-bottom: 0px;
+            align-items: center;
 
-        p{
-            margin: 0px;
+            .navigate{
+                color: azure;
+                font-weight: bold;
+
+                &.active{
+                    color:#d2a915;
+                }
+            }
+
+            &.at_top{
+                height: 80px;
+                h1{
+                    font-size:40px;
+                }
+                a{
+                    font-size: 20px;
+                }
+            }
+        }
+
+    }
+    
+    div, h1, h3, p{
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+
+    .intro{
+        background-color: $main_color;
+        img{
+            width: 30%;
+            height: auto;
+        }
+        scroll-margin-top: 60px;
+    }
+
+    .description{
+        background-color: azure;
+        scroll-margin-top: 60px;
+        position: relative;
+        width: 100%;
+
+        .carousel-window {
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .carousel-slide {
+            flex: 0 0 100%;
+            
+            .text{
+                font-size: 18px;
+                box-sizing: border-box;
+                padding: 40px 80px;
+            }
+            img{
+                height: 500px;
+                width: auto;
+                display: block;
+                margin: auto;
+            }
+        }
+
+        .carousel-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1;
+            border: none;
+            font-size: 30px;
+            cursor: pointer;
+        }
+
+        .previous {
+            left: 15px;
+        }
+
+        .next {
+            right: 15px;
         }
     }
 
-    header{
-        margin: 0px;
+    .genetics{
         background-color: $main_color;
+        scroll-margin-top: 60px;
+    }
+
+    .uses{
+        background-color: azure;
+        scroll-margin-top: 60px;
     }
 
     footer{
         background-color: $ui_color;
         text-align: center;
         color: azure;
-        p {
-            margin: 0px;
-        }
     }
 }
 
