@@ -14,6 +14,11 @@ const nextButton = document.querySelector(".next");
 
 let currentSlide = 0;
 
+const modal = document.querySelector("#genetics-modal");
+const openModalButton = document.querySelector("#open-modal");
+const closeModalButton = document.querySelector("#close-modal");
+
+
 function updateNavigation() {
     const navBottom = nav.getBoundingClientRect().bottom;
     let activeIndex = 0;
@@ -71,6 +76,20 @@ previousButton.addEventListener("click", function() {
 
 nextButton.addEventListener("click", function() {
     showSlide(currentSlide + 1);
+});
+
+openModalButton.addEventListener("click", () => {
+    modal.showModal();
+});
+
+closeModalButton.addEventListener("click", () => {
+    modal.close();
+});
+
+modal.addEventListener("click", (event) => {
+    if (event.target === modal) {
+        modal.close();
+    }
 });
 
 
